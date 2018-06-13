@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<title>{{title}}</title>
+		<meta name = "viewport" content = "width=device-width, initial-scale=1" charset="utf-8">
+
+		<!-- CSS -->
+		<link rel= "stylesheet" type = "text/css" href="{{url_for('static', filename = 'design.css')}}"/>
+
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+
+
+		<!-- Required Scrips -->
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<!-- Bootstraps -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+		<!-- User scripts -->
+		<!--<script src = "{{url_for('static', filename = 'fetchdata.js')}}"></script>-->
+
+
+	</head>
+	<body>
+			<nav class = "navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+				<ul class = "navbar-nav">
+							<li class = "nav-item active"><a class = "nav-link" href = "/home">Home</a></li>
+							<li class= "nav-item"><a class = "nav-link" href = "/customers">Customers Section</a></li>
+							<li class = "nav-item"><a class = "nav-link" href = "/about_us">About Us</a></li>
+							<li class = "nav-item"><a class = "nav-link" href = "#">Why should you choose us?</a></li>
+							<li class = "nav-item"><a class = "nav-link" href = "/contact_us">Contact Us</a></li>
+							<li class = "nav-item"><a class = "nav-link" href = "/tariff">Tariff</a></li>
+						</ul>
+				</div>
+			</nav>
+
+			
+		<div id = "_form" class = "container bg-dark cont-margin col-5 site-dialog-text">
+			<div class = "form_style site-font"> Sign Up </div>
+			
+			<form name = "signup_form" class = "form-group site-font" action="/signup/register" method = "post">
+				<div class = "form-group col-md-11"> <label for = "email">Email :</label><input class = "form-control" id = "email" name = "email" type = "text"  placeholder = "example@email.com"/></div>
+				<div class = "form-group col-md-11"><label>Username :</label><input class = "form-control" name = "uname"  type = "text" placeholder = "Username"/></div>
+				<div class = "form-group col-md-11"><label>Password :</label><input name = "pass"  type = "password" placeholder = "Password" class = "form-control"/></div>
+				<div class = "form-group col-md-11"><label>Name :</label><input name = "cus_name"  type = "text" placeholder = "Your address here" class = "form-control"/></div>
+				<div class = "form-group col-md-11"><label>Address :</label><input name = "addr"  type = "text" placeholder = "Your address here" class = "form-control"/></div>
+				<div class = "form-group col-md-11"><label>City :</label><select name = "city"  type = "text" class = "form-control"><option value = "New Delhi">New Delhi</option>
+					<option value = "Kolkata">Kolkata</option>
+					<option value = "Ahmedabad">Ahmedabad</option>
+					<option value = "Mumbai">Mumbai</option>
+					<option value = "Bangalore">Bangalore</option>
+				</select></div>
+				<div class = "form-group col-md-11"><label>AADHAR ID :</label><input class = "form-control" maxlength = "12" name = "aadhar"  type = "text" placeholder = "AADHAR ID"/></div> {% if error %}
+			<p class = "text-danger">{{ error }}</p>
+			{% endif %}
+				<div class = "text-center"><button type = "submit" class = "btn btn-primary btn-lg text-center">Sign Up</button></div>
+					<div class = "text-center"><a href = "/signin">Login instead</a></div>
+
+			</form>
+		</div>
+	
+
+	</body>
+</html>

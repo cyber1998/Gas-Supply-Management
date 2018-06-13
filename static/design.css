@@ -1,0 +1,42 @@
+body	{
+	background:url('main-body-background_opt.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+	background-size:cover;
+}
+
+.cont-margin	{
+	padding:30px 30px 30px 30px;
+}
+
+.right-align	{
+	right:0;
+	position:absolute;
+}
+
+.site-dialog-text	{
+	color: #00FFFF;
+	font-size:1.2em;
+}
+
+
+.form_style	{
+	text-align:center;
+	font-size:50px;
+	font-weight:4em;
+}
+
+.site-font	{
+	font-family:  'Josefin Sans', 'sans-serif';
+}
+
+#_form	{
+	margin-top:10%;
+	margin-bottom:10%;
+	padding:8%;
+}
+
+.icon_padding	{
+	padding:5px;
+}

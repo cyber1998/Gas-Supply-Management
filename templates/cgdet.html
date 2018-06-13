@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<title>{{title}}</title>
+		<meta name = "viewport" content = "width=device-width, initial-scale=1" charset="utf-8">
+
+		<!-- CSS -->
+		<link rel= "stylesheet" type = "text/css" href="{{url_for('static', filename = 'design.css')}}"/>
+
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+
+
+		<!-- Required Scrips -->
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<!-- Bootstraps -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+		<!-- User scripts -->
+		<!--<script src = "{{url_for('static', filename = 'fetchdata.js')}}"></script>-->
+
+
+	</head>
+	<body>
+			<nav class = "navbar navbar-expand-sm bg-dark navbar-dark">
+				<ul class = "navbar-nav">
+							<li class = "nav-item active"><a class = "nav-link" href = "/home">Home</a></li>
+							<li class= "nav-item"><a class = "nav-link" href = "/customers">Customers Section</a></li>
+							<li class = "nav-item"><a class = "nav-link" href = "/about_us">About Us</a></li>
+							<li class = "nav-item"><a class = "nav-link" href = "#">Why should you choose us?</a></li>
+							<li class = "nav-item"><a class = "nav-link" href = "/contact_us">Contact Us</a></li>
+							<li class = "nav-item"><a class = "nav-link" href = "/tariff">Tariff</a></li>
+							{% if session['username'] %}<li class = "nav-item icon_padding"><a href = "/logout"><input type = "button" class = "btn btn-danger btn-sm nav-link" value = "Logout"/></a></li>
+							<li class = "nav-item icon_padding" ><a href = "/changedetails"><img src = "{{url_for('static', filename = 'settings_icon.png')}}"></a></li> {% endif %}
+
+						</ul>
+				</div>
+			</nav>
+
+		{% if session %}
+		<div class = "container col-md-7 bg-dark site-dialog-text">
+			<div id = "_form">
+				<div> <h1> Change Details </h1> </div>
+				<form class = "_changepassform" action = "/changedetails/changepassword" method = "post">
+				<div class = "form-group col-md-11"><label>Last Password :</label><input class = "form-control" name = "lpass"  type = "password" placeholder = "Password"/></div>
+				<div class = "form-group col-md-11"><label>New Password :</label><input class = "form-control" name = "npass"  type = "password" placeholder = "Password"/></div>
+				<div class = "form-group col-md-11"><label>Confirm New Password :</label><input class = "form-control" name = "cnpass"  type = "password" placeholder = "Password"/></div>
+				<div>{% if passworderror %}<p class = "text-danger"> {{ passworderror }}</p>  {% elif passwordsuccess %} <p class = "text-success">{{passwordsuccess}}</p> {% endif %}</div>
+				<button class = "btn-success" type = "submit">Change my password</button>
+				</form>
+				<form class ="_changeaddform" action = "/changedetails/changeaddress" method = "post">
+				<div class = "form-group col-md-11"><label>Change Address :</label><input class = "form-control" name = "addr"  type = "text" placeholder = "Address"/></div>
+				<button class = "btn-success" type = "submit">Change my address</button>
+				<div>{% if addresserror %}<p class = "text-danger">{{ addresserror }}</p>  {% elif addresssuccess %}<p class = "text-sucess">{{addresssuccess }}</p> {% endif %}</div>
+				</form>
+			
+		</div>
+		{% else %}
+		<div class = "container col-md-7 bg-dark site-dialog-text">
+			<p> Please login <a href = "/signin">here</a> first. </p>
+		</div>
+
+		{% endif %}
+	
+
+	</body>
+</html>

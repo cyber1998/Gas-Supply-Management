@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<title>{{title}}</title>
+		<meta name = "viewport" content = "width=device-width, initial-scale=1" charset="utf-8">
+
+		<!-- CSS -->
+		<link rel= "stylesheet" type = "text/css" href="{{url_for('static', filename = 'design.css')}}"/>
+
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+
+
+		<!-- Required Scrips -->
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<!-- Bootstraps -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+		<!-- User scripts -->
+		<!--<script src = "{{url_for('static', filename = 'fetchdata.js')}}"></script>-->
+
+
+	</head>
+	<body>
+			<nav class = "navbar navbar-expand-sm bg-dark navbar-dark">
+				<ul class = "navbar-nav">
+							<li class = "nav-item active"><a class = "nav-link" href = "/home">Home</a></li>
+							<li class= "nav-item"><a class = "nav-link" href = "/customers">Customers Section</a></li>
+							<li class = "nav-item"><a class = "nav-link" href = "/about_us">About Us</a></li>
+							<li class = "nav-item"><a class = "nav-link" href = "#">Why should you choose us?</a></li>
+							<li class = "nav-item"><a class = "nav-link" href = "/contact_us">Contact Us</a></li>
+							<li class = "nav-item"><a class = "nav-link" href = "/tariff">Tariff</a></li>
+							{% if session['username'] %}<li class = "nav-item icon_padding"><a href = "/logout"><input type = "button" class = "btn btn-danger btn-sm nav-link" value = "Logout"/></a></li>
+							<li class = "nav-item icon_padding" ><a href = "/changedetails"><img src = "{{url_for('static', filename = 'settings_icon.png')}}"></a></li> {% endif %}
+						</ul>
+				</div>
+			</nav>
+
+		
+		<div id = "_form" class = "container bg-dark cont-margin col-5 site-dialog-text">
+			<div class = "form_style site-font"> Welcome to PNG GAS SUPPLY CORPORATION </div>
+				<div>
+					<p>IGS Energy is one of India’s leading independent energy providers. We have built our business around our belief that you should be able to choose the energy supplier that best meets your needs. We believe in free markets where competition, transparency and accountability drive innovation & efficiency, and we believe that you, the consumer, will play a vital role in shaping our country’s energy future.</p>
+
+					<p>We provide electric and natural gas pricing for your residence and business, as well as home protection plans and green energy solutions. Lock in your energy and have peace of mind that your energy costs won’t spike through the duration of your term.</p>
+				</div>
+
+			</div>
+	
+
+	</body>
+</html>
